@@ -6,6 +6,7 @@ import { addTask, moveList } from "./state/actions";
 import { useRef } from "react";
 import { useItemDrag } from "./utils/useItemDrag";
 import { useDrop } from "react-dnd";
+import { isHidden } from "./utils/isHidden";
 
 
 type ColumnProps = {
@@ -36,7 +37,10 @@ export const Column = ({ text, id }: ColumnProps) => {
 
     drag(drop(ref))
     return (
-        <ColumnContainer ref={ref}>
+        <ColumnContainer
+            ref={ref}
+            isHidden={isHidden(draggedItem, "COLUMN", id)}
+        >
             <ColumnTitle>{text}</ColumnTitle>
             {tasks.map(task => (
                 <Card text={task.text} key={task.id} id={task.id}/>
