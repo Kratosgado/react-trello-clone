@@ -16,7 +16,7 @@ type DragPreviewContainerProps = {
 }
 export const DragPreviewContainer = styled.div<DragPreviewContainerProps>`
     transform: ${props =>(props.isPreview ? "rotate(5deg)": undefined)};
-    opacity: ${props => (props.isHidden ? 0 : 1)};
+    opacity: ${props => (props.isHidden ? 0.3 : 1)};
 `
 export const CustomDragLayerContainer = styled.div`
     height: 100%;
@@ -27,24 +27,17 @@ export const CustomDragLayerContainer = styled.div`
     width: 100%;
     z-index: 100;
 `
-type DragPreviewWrapperProps = {
-    position: {
-        x: number
-        y: number
-    }
-}
+
 type Position = {
     x: number;
     y: number;
   };
   
-export const DragPreviewWrapper = styled.div.attrs<{
-    position: string | number | CSSObject | undefined;
-  }>(({ x, y }: Position) => ({
+export const DragPreviewWrapper = styled.div.attrs<{position: Position}>(({ x,y }: Position) => ({
     style: {
       transform: `translate(${x}px, ${y}px)`,
     },
-  }))<{ position: string | number | CSSObject | undefined }>`
+  }))<{ position: Position }>`
     // Styles for DragPreviewWrapper
   `;
   

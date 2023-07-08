@@ -3,16 +3,10 @@ import { Column } from "./Column";
 import { CustomDragLayerContainer, DragPreviewWrapper } from "./styles";
 import { useAppState } from "./state/AppStateContext";
 
-type Position = {
-    x: number;
-    y: number;
-  };
-  
-
 export const CustomDragLayer = () => {
     const { draggedItem } = useAppState();
     const { currentOffset } = useDragLayer((monitor) => ({
-        currentOffset: monitor.getSourceClientOffset() as Position
+        currentOffset: monitor.getSourceClientOffset()
     }))
 
     return draggedItem && currentOffset ? (
