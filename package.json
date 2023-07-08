@@ -43,6 +43,8 @@
     ]
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.26"
+    "@types/styled-components": "^5.1.26",
+    "react-dnd": "^14.0.1",
+    "react-dnd-html5-backend": "^4.0.0"
   }
 }
