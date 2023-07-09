@@ -33,13 +33,16 @@ type Position = {
     y: number;
   };
   
-export const DragPreviewWrapper = styled.div.attrs<{position: Position}>(({ x,y }: Position) => ({
+  export const DragPreviewWrapper = styled.div.attrs<{
+    position: Position;
+    isPreview?: boolean;
+  }>(({ position: { x, y }, isPreview }) => ({
     style: {
-      transform: `translate(${x}px, ${y}px)`,
+      transform: `translate(${x}px, ${y}px) rotate(${isPreview ? "5deg" : "0deg"})`,
     },
-  }))<{ position: Position }>`
+  }))<{ position: Position; isPreview?: boolean }>`
     // Styles for DragPreviewWrapper
-  `;
+  `
   
 export const ColumnContainer = styled(DragPreviewContainer)`
     background-color: #ebecf0;
