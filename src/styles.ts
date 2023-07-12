@@ -1,4 +1,4 @@
-import styled, {CSSObject} from "styled-components";
+import styled from "styled-components";
 
 export const AppContainer = styled.div`
     align-items: flex-start;
@@ -16,7 +16,7 @@ type DragPreviewContainerProps = {
 }
 export const DragPreviewContainer = styled.div<DragPreviewContainerProps>`
     transform: ${props =>(props.isPreview ? "rotate(5deg)": undefined)};
-    opacity: ${props => (props.isHidden ? 0.3 : 1)};
+    opacity: ${props => (props.isHidden ? 0 : 1)};
 `
 export const CustomDragLayerContainer = styled.div`
     height: 100%;
